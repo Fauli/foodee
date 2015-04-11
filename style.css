@@ -1,0 +1,63 @@
+html {
+
+}
+
+body {
+	font-family: Verdana, Arial;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#header {
+	background-color: black;
+	width: 100%;
+	height: 10%;
+}
+
+#navigation {
+	background-color: grey;
+	width: 100%;
+	height: 5%;
+}
+
+#content {
+	background-color: lightgrey;
+	width: 100%;
+	height: 85%;
+}
+
+.navigationList { 
+	/* formerly known as ul */
+	list-style-type:none; 
+	margin:0px; 
+	padding:1; 
+	padding-top:7px; 
+	padding-bottom:5px; 
+}
+
+.navigationItem { 
+	/* formerly known as il */
+	display:inline; 
+} 
+
+.navigationLink:link,.navigationLink:visited {
+	font-weight:bold; 
+	/*color: ; */ 
+	background-color:red; 
+	text-align:center;
+	padding:3px;
+	margin: 0px; 
+	text-decoration:italic; 
+	text-transform:uppercase; 
+}
+
+.navigationLink:hover,.navigationLink:active { 
+	background-color: blue; 
+}
