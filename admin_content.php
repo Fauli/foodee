@@ -10,21 +10,34 @@
 		mysql_select_db($dbName) or die('Could not select database');
 
 		// Performing SQL query
-		$query = "SELECT * FROM $dbTable";
+		$query = "SELECT username, firstname, lastname, email, isAdmin FROM $dbTable";
 		$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
 		// Printing results in HTML
-		echo '<table class="table table-striped">'."\n";
-		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-		    echo "\t<tr>\n";
-		    foreach ($line as $col_value) {
-		        echo "\t\t<td>$col_value</td>\n";
-		    }
-		    echo '<td><button type="button" class="btn btn-default">Edit</button></td>';
-		    echo "\t</tr>\n";
-		}
-		echo "</table>\n";
-		echo '<button type="button" onClick="mytest()" class="btn btn-default">Add new user</button><br />';
+	echo '<span class="pageTitle">Last added recipes</span>';
+	echo '<table class="table table-striped">'."\n";
+	?>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>e-mail</th>
+        <th>is an admin</th>
+      </tr>
+    </thead>
+    <?
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	    echo "\t<tr>\n";
+	    $isAdmin = 'false';
+	    if($row['isAdmin'] == 1){
+	    	$isAdmin = 'true';
+	    }
+		printf("\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n", $row["username"], $row["firstname"],$row["lastname"],$row["email"],$isAdmin);
+	    echo "\t</tr>\n";
+	}
+	echo "</table>\n";
+	echo '<button type="button" class="btn btn-default">Add new user</button><br />';
 
 		// Free resultset
 		mysql_free_result($result);
