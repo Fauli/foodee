@@ -37,6 +37,8 @@
 	    echo "\t</tr>\n";*/
 	}
 	echo "</table>\n";
+	echo '<button type="button" class="btn btn-default">Add new event</button><br />';
+
 
 	// Free resultset
 	mysql_free_result($result);

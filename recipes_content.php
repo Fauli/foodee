@@ -1,5 +1,5 @@
 <?php
-echo 'RECIPES!';
+echo '<span class="pageTitle">Recipes</span>';
 session_start();
 include 'db_config.php';
 $link = mysql_connect($dbHost, $dbUser, $dbPwd) or die('Could not connect: ' . mysql_error());

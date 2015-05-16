@@ -34,6 +34,8 @@
 					} 
 				?>
 			</div>
+			<?php if (isset($_SESSION['username'])) { ?>
+
 			<div id='navigation'>
 				<ul class="navigationList">
 					<li class="navigationItem">
@@ -45,9 +47,11 @@
 					<li class="navigationItem">
 						<a class="navigationLink" href="index.php?page=termine"><button type="button" class="btn btn-default">Termine/Essen</button></a>
 					</li>
+					<?php if($_SESSION['isAdmin'] == 1) { ?>
 					<li class="navigationItem">
 						<a class="navigationLink" href="index.php?page=admin"><button type="button" class="btn btn-default">Admin</button></a>
 					</li>
+					<?php } ?>
 				</ul>
 			</div>
 			<div id='content'>
@@ -58,7 +62,7 @@
 				// DO SESSION CHECK HERE
 				// GO INTO BELOW IF WHEN THE SESSION IS VALID
 
-				if (isset($_SESSION['username'])) {
+				// MOVED UP if (isset($_SESSION['username'])) {
 
 					# ROUTER
 					if ($pageParam == 'home') {

@@ -10,7 +10,7 @@
 		<input id="pwd_Password" name="login_password" type="password" aria-labelledby="Password-ariaLabel" class="required" title="Password. This is a required field" />
 	</div>
 	<div class="row">
-		<input type="submit" value="Ihloggääh" />
+		<input type="submit" value="Login" />
 	</div>
 </form>
-<?php } else { echo "scho ihgloggt"; } ?>
+<?php } else { echo "Already logged in"; } ?>
