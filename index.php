@@ -3,6 +3,16 @@
 		<title>FooDee</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		</link>
+		<!-- TODO: ADD OWN SCRIPTS ON SERVER -->
+		<!-- Latest compiled and minified CSS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div id='wrapper'>
@@ -13,11 +23,13 @@
 					session_start();
 					if (isset($_SESSION['username'])) {
 				?>
-				<form method="post" action="logout.php" class="loginform">
-					<fieldset>
-						<input type="submit" value="Usloggääh" />
-					</fieldset>
-				</form>
+				<div id="logoutWrapper">
+					<form id="logoutForm" method="post" action="logout.php" class="loginform">
+					<!--<fieldset> -->
+						<input class="btn btn-default" type="submit" value="Logout" />
+					<!--</fieldset> -->
+					</form>
+				</div>
 				<?php 
 					} 
 				?>
@@ -25,16 +37,16 @@
 			<div id='navigation'>
 				<ul class="navigationList">
 					<li class="navigationItem">
-						<a class="navigationLink" href="index.php?page=home">Home</a>
+						<a class="navigationLink" href="index.php?page=home"><button type="button" class="btn btn-default">Home</button></a>
 					</li>
 					<li class="navigationItem">
-						<a class="navigationLink" href="index.php?page=rezepte">Rezepte</a>
+						<a class="navigationLink" href="index.php?page=rezepte"><button type="button" class="btn btn-default">Rezepte</button></a>
 					</li>
 					<li class="navigationItem">
-						<a class="navigationLink" href="index.php?page=termine">Termine/Essen</a>
+						<a class="navigationLink" href="index.php?page=termine"><button type="button" class="btn btn-default">Termine/Essen</button></a>
 					</li>
 					<li class="navigationItem">
-						<a class="navigationLink" href="index.php?page=admin">Admin</a>
+						<a class="navigationLink" href="index.php?page=admin"><button type="button" class="btn btn-default">Admin</button></a>
 					</li>
 				</ul>
 			</div>
