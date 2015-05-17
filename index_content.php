@@ -42,7 +42,9 @@
 	//  ## NEXT EVENTS
 	$dbTable = 'events';
 	// Performing SQL query
-	$query = "SELECT e.event_date, e.event_name, u.username FROM events e LEFT OUTER JOIN users u on e.user_fk = u.users_id";
+	//dude why outer join?
+	//$query = "SELECT e.event_date, e.event_name, u.username FROM events e LEFT OUTER JOIN users u on e.user_fk = u.users_id";
+	$query = "SELECT e.event_date, e.event_name, u.username FROM events e, users u where e.user_fk = u.users_id";
 	$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
 	// Printing results in HTML

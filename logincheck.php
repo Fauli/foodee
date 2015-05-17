@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
 		$login_username = $_POST['login_username'];
 		$login_password = $_POST['login_password'];
 		if (!empty($login_username) && !empty($login_password)) {
-			$query = "SELECT username, password, isAdmin FROM $dbUsertbl WHERE username='" . mysql_real_escape_string($login_username) . "' AND password=PASSWORD('" . mysql_real_escape_string($login_password) . "')";
+			$query = "SELECT username, password, isAdmin,users_id FROM $dbUsertbl WHERE username='" . mysql_real_escape_string($login_username) . "' AND password=PASSWORD('" . mysql_real_escape_string($login_password) . "')";
 			$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 			if ($result) {
 				$query_num_rows = mysql_num_rows($result);
@@ -54,35 +54,36 @@ if (!isset($_SESSION['username'])) {
 					$_SESSION['username'] = $_POST['login_username'];
 					while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 						$_SESSION['isAdmin'] = $row["isAdmin"];
+						$_SESSION['users_id'] = $row["users_id"];
 						//echo "is admin is now: ".$row['isAdmin']." on session";
 					}
 					mysql_free_result($result);
 					mysql_close($link);
 					header("Location: index.php?page=home");
-exit();
+					exit();
 				}
 			} else {
 				//echo 'sql error ' . mysql_error();
 
 				header("Location: index.php?page=home0");
-exit();
+				exit();
 			}
 			mysql_free_result($result);
 			mysql_close($link);
 		} else {
 
 			header("Location: index.php?page=home1");
-exit();
+			exit();
 		}
 	} else {
 
 		header("Location: index.php?page=home2");
-exit();
+		exit();
 	}
 } else {
 
 	header("Location: index.php?page=home3");
-exit();
+	exit();
 }
 
 header("Location: index.php?page=home4");

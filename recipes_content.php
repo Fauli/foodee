@@ -34,6 +34,26 @@ doQuery("desc units");
 echo "<p>users:</p>";
 doQuery("desc users");
 
+//events
+echo "<p>events:</p>";
+doQuery("desc events");
+
+//participants
+echo "<p>participants:</p>";
+doQuery("desc participants");
+
+//users
+echo "<p>users:</p>";
+doQuery("desc users");
+
+//participants
+echo "<p>participants:</p>";
+doQuery("select * from participants");
+
+//run once
+//echo "<p>runonce:</p>";
+//doQuery("delete from participants where user_fk=6");
+
 function doQuery($query) {
 	$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 	echo "<table>\n";
