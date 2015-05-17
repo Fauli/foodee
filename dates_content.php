@@ -30,7 +30,7 @@ echo '<table class="table table-striped">' . "\n";
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	echo "\t<tr>\n";
 	printf("\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>
-<a class=\"standardLink\" href=\"http://foodee.sbebe.ch/index.php?page=participate&event_id=%s\"><button type=\"button\" class=\"btn btn-default\">participate</button></a>
+<a class=\"standardLink\" href=\"http://foodee.sbebe.ch/index.php?page=participate&event_id=%s\"><button type=\"button\" class=\"btn btn-success\">participate</button></a>
 </td>\n", $row["event_date"], $row["event_name"], $row["username"], $row["participants"], $row["event_id"]);
 	echo "\t</tr>\n";
 
