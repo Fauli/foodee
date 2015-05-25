@@ -33,15 +33,18 @@ $(document).ready(function(){$('[data-toggle="participants"]').tooltip();});
 <?
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	echo "\t<tr>\n";
+	echo "<body onload=\"testiii()\">";
+	
 	printf("\t\t<td>%s</td>\n\t\t
 	<td>%s</td>\n\t\t
 	<td>%s</td>\n\t\t
-	<td><a id=\"show_participants\" href=\"#\" data-toggle=\"participants\" title=\"showParticipants(%s);\">%s</a></td>\n\t\t
+	<td><a id=\"show_participants_%s\" href=\"#\" data-toggle=\"participants\" title=\"\">%s</a></td>\n\t\t
 	<td>
 <a class=\"standardLink\" href=\"http://foodee.sbebe.ch/index.php?page=participate&event_id=%s\"><button type=\"button\" class=\"btn btn-success\">participate</button></a>
 </td>\n", $row["event_date"], $row["event_name"], $row["username"], $row["event_id"], $row["event_id"], $row["participants"], $row["event_id"]);
 	echo "\t</tr>\n";
-
+	
+	echo "</body>";
 	/*echo "\t<tr>\n";
 	 foreach ($line as $col_value) {
 	 echo "LINE: $line, $col_value<br/>";
