@@ -13,6 +13,9 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		
+		<!-- nigglitest -->
+		<script src="scripts.js"></script>
 	</head>
 	<body>
 		<div id='wrapper'>
@@ -122,6 +125,8 @@ if (isset($_SESSION['username'])) {
 				//why does it not redirect
 				header("Location: index.php?page=home");
 				exit();
+			} elseif ($pageParam == 'interactive') {
+				include 'interactive_content.php';
 			} else {
 				echo 'Page not found, you foolish hacker ^^';
 				http_response_code(404);

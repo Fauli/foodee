@@ -17,6 +17,10 @@ $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 echo '<span class="pageTitle">Next events</span>';
 echo '<table class="table table-striped">' . "\n";
 ?>
+<script>
+$(document).ready(function(){$('[data-toggle="participants"]').tooltip();});
+
+</script>
 <thead>
 	<tr>
 		<th>Event Date</th>
@@ -29,9 +33,13 @@ echo '<table class="table table-striped">' . "\n";
 <?
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	echo "\t<tr>\n";
-	printf("\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>%s</td>\n\t\t<td>
+	printf("\t\t<td>%s</td>\n\t\t
+	<td>%s</td>\n\t\t
+	<td>%s</td>\n\t\t
+	<td><a id=\"show_participants\" href=\"#\" data-toggle=\"participants\" title=\"showParticipants(%s);\">%s</a></td>\n\t\t
+	<td>
 <a class=\"standardLink\" href=\"http://foodee.sbebe.ch/index.php?page=participate&event_id=%s\"><button type=\"button\" class=\"btn btn-success\">participate</button></a>
-</td>\n", $row["event_date"], $row["event_name"], $row["username"], $row["participants"], $row["event_id"]);
+</td>\n", $row["event_date"], $row["event_name"], $row["username"], $row["event_id"], $row["event_id"], $row["participants"], $row["event_id"]);
 	echo "\t</tr>\n";
 
 	/*echo "\t<tr>\n";
